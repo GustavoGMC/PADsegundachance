@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -19,15 +20,16 @@ public class Produtor extends AbstractEntity{
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "nm_nome", length = 60)
-    public String nome;
+    private String nome;
 	@Column(name = "nm_cpf", length = 60)
-    public String cpf;
+    private String cpf;
 	@Column(name = "nm_email", length = 60)
-    public String email;
+    private String email;
     @Column(name = "nm_telefone", length = 60)
-    public String telefone;
+    private String telefone;
     @OneToMany
-    public List <Produto> produtos;
+    @JoinColumn(name = "produtor_id")
+    private List <Produto> produtos;
     
     public Produtor(){
         

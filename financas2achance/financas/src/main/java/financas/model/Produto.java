@@ -19,17 +19,17 @@ public class Produto extends AbstractEntity{
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "nm_nome", length = 60)
-    public String nome;
+    private String nome;
 	@ManyToOne
-    public Categoria categoria;
+    private Categoria categoria;
     @Column(name = "nm_unidade", length = 60)
-    public String unidade;
+    private String unidade;
     @Column(name = "nm_preco")
-    public float preco;
+    private float preco;
     @Column(name = "nm_precoMercado")
-    public float precoMercado;
+    private float precoMercado;
     @Column(name = "nm_precoLojinha")
-    public float precoLojinha;
+    private float precoLojinha;
     
     public Produto(){
         
@@ -96,54 +96,4 @@ public class Produto extends AbstractEntity{
         this.precoLojinha = precoLojinha;
     }
     
-    @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + Float.floatToIntBits(preco);
-		result = prime * result + Float.floatToIntBits(precoLojinha);
-		result = prime * result + Float.floatToIntBits(precoMercado);
-		result = prime * result + ((unidade == null) ? 0 : unidade.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Produto other = (Produto) obj;
-		if (categoria == null) {
-			if (other.categoria != null)
-				return false;
-		} else if (!categoria.equals(other.categoria))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (Float.floatToIntBits(preco) != Float.floatToIntBits(other.preco))
-			return false;
-		if (Float.floatToIntBits(precoLojinha) != Float.floatToIntBits(other.precoLojinha))
-			return false;
-		if (Float.floatToIntBits(precoMercado) != Float.floatToIntBits(other.precoMercado))
-			return false;
-		if (unidade == null) {
-			if (other.unidade != null)
-				return false;
-		} else if (!unidade.equals(other.unidade))
-			return false;
-		return true;
-	}
-
-	@Override
-    public String toString() {
-        return "Produto{" + "nome=" + nome + ", categoria=" + categoria + ", unidade=" + unidade + ", preco=" + preco + ", precoMercado=" + precoMercado + ", precoLojinha=" + precoLojinha + '}';
-    }
 }

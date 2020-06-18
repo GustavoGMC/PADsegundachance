@@ -22,7 +22,7 @@ public class Usuario extends AbstractEntity{
 	@Column(name = "nm_senha", length = 255)
 	private String senha;
 	@Column(name = "nm_ativo", length = 1)
-    public boolean ativo;
+    private boolean ativo;
     
     public Usuario(){
         
